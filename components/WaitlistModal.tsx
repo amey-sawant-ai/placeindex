@@ -234,22 +234,55 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                             </form>
                         </div>
                     ) : (
-                        <div className="modal-content flex flex-col items-center gap-3 sm:gap-4 py-3 sm:py-4 text-center">
-                            <div className="success-icon flex h-12 w-12 sm:h-14 sm:w-14 items-center justify-center rounded-full bg-white/10 text-2xl sm:text-3xl">
+                        <div className="modal-content flex flex-col items-center gap-4 sm:gap-6 py-2 sm:py-4 text-center">
+                            <div className="success-icon flex h-14 w-14 sm:h-16 sm:w-16 items-center justify-center rounded-full bg-white/10 text-3xl sm:text-4xl">
                                 🎉
                             </div>
-                            <h2
-                                className="modal-title text-xl sm:text-2xl md:text-3xl font-bold text-white px-2"
-                                style={{ fontFamily: "var(--font-syne)" }}
-                            >
-                                You&apos;re on the list!
-                            </h2>
-                            <p className="modal-subtitle text-sm sm:text-base text-white/50 px-2">
-                                We&apos;ll notify <span className="text-white/80 break-all">{email}</span> when we launch.
-                            </p>
+
+                            <div>
+                                <h2
+                                    className="modal-title text-xl sm:text-2xl md:text-3xl font-bold text-white px-2"
+                                    style={{ fontFamily: "var(--font-syne)" }}
+                                >
+                                    You&apos;re on the list!
+                                </h2>
+                                <p className="mt-2 text-sm sm:text-base text-white/50 px-2 leading-relaxed">
+                                    We&apos;ve added <span className="text-white/80 break-all font-medium">{email}</span> to our early-access group.
+                                </p>
+                            </div>
+
+                            <div className="w-full rounded-xl bg-white/5 p-4 text-left border border-white/10">
+                                <h3 className="text-xs font-bold uppercase tracking-wider text-white/40 mb-2">What to expect</h3>
+                                <p className="text-xs sm:text-sm text-white/70 leading-relaxed">
+                                    We&apos;re currently finalizing our standardized neighborhood scoring models. You&apos;ll be the first to receive our early-access market intelligence reports and dashboard credentials.
+                                </p>
+                            </div>
+
+                            <div className="w-full flex flex-col gap-3">
+                                <p className="text-xs font-bold uppercase tracking-wider text-white/40">Spread the word</p>
+                                <div className="flex gap-3 justify-center">
+                                    <a
+                                        href={`https://x.com/intent/tweet?text=${encodeURIComponent("Just joined the waitlist for PlaceIndex — The S&P 500 for Neighborhoods! Check it out: https://placeindex.online")}`}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex-1 flex items-center justify-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-white/20 no-underline border border-white/5"
+                                    >
+                                        Share on X
+                                    </a>
+                                    <a
+                                        href="https://www.linkedin.com/sharing/share-offsite/?url=https://placeindex.online"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex-1 flex items-center justify-center gap-2 rounded-full bg-white/10 px-4 py-2 text-xs sm:text-sm font-semibold text-white transition-all hover:bg-white/20 no-underline border border-white/5"
+                                    >
+                                        LinkedIn
+                                    </a>
+                                </div>
+                            </div>
+
                             <button
                                 onClick={onClose}
-                                className="mt-1 sm:mt-2 rounded-full bg-white px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-semibold text-black transition-opacity hover:opacity-80 active:opacity-60 cursor-pointer border-none"
+                                className="w-full rounded-full bg-white py-3 text-sm sm:text-base font-bold text-black transition-opacity hover:opacity-80 active:opacity-60 cursor-pointer border-none"
                             >
                                 Done
                             </button>
