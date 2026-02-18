@@ -128,6 +128,9 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     className="modal-card relative z-10 w-full max-w-md rounded-xl sm:rounded-2xl border border-white/10 bg-[#000000] p-5 sm:p-6 md:p-8 shadow-2xl"
                     style={{ animation: "modalIn 0.2s ease-out" }}
                     onClick={(e) => e.stopPropagation()}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-labelledby="modal-title"
                 >
                     {/* Close button */}
                     <button
@@ -141,6 +144,7 @@ export default function WaitlistModal({ isOpen, onClose }: WaitlistModalProps) {
                     {!submitted ? (
                         <div className="modal-content">
                             <h2
+                                id="modal-title"
                                 className="modal-title mb-1 sm:mb-2 text-xl sm:text-2xl md:text-3xl font-bold text-white pr-8"
                                 style={{ fontFamily: "var(--font-syne)" }}
                             >

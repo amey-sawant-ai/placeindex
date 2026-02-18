@@ -10,6 +10,7 @@ export default function HeroSection() {
                 loop
                 muted
                 playsInline
+                title="Background cinematic video showing various places"
             />
 
             {/* Dark overlay so content stays readable */}
@@ -21,10 +22,10 @@ export default function HeroSection() {
                     className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight"
                     style={{ fontFamily: "var(--font-syne)" }}
                 >
-                    Discover Every Place
+                    Intelligence for Every <span className="text-white/60">Neighborhood</span>
                 </h1>
-                <p className="mt-4 max-w-xl text-base sm:text-lg text-white/60">
-                    PlaceIndex helps you find, explore, and share the best places around you.
+                <p className="mt-4 max-w-2xl text-base sm:text-lg text-white/60">
+                    The S&P 500 for real estate. Compare localities side-by-side using standardized, data-driven benchmarks and objective market signals.
                 </p>
             </div>
 
