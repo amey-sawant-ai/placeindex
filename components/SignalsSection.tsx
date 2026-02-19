@@ -77,8 +77,8 @@ export default function SignalsSection() {
         <section className="relative py-24 px-4 sm:px-8 lg:px-16 border-t border-white/5">
             <div className="max-w-6xl mx-auto">
 
-                {/* Signals grid */}
-                <div className="text-center mb-16">
+                {/* Header */}
+                <div className="text-center mb-16 reveal">
                     <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-4">Output Signals</p>
                     <h2
                         className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white"
@@ -92,17 +92,20 @@ export default function SignalsSection() {
                     </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-24">
+                {/* Signals grid — staggered scale-in */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 mb-24 stagger-children">
                     {signals.map((s) => (
                         <div
                             key={s.label}
-                            className="p-5 rounded-2xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.04] hover:border-white/15 transition-all duration-200 cursor-default group"
+                            className="reveal-scale p-5 rounded-2xl border border-white/8 bg-white/[0.02] hover-glow group cursor-default"
                         >
-                            <div className="flex items-center gap-2 mb-3 text-white/30 group-hover:text-white/50 transition-colors">
+                            <div className="flex items-center gap-2 mb-3 text-white/30 group-hover:text-white/60 transition-colors duration-300">
                                 {s.icon}
                                 <span className="text-xs font-mono">{s.label}</span>
                             </div>
-                            <p className="text-2xl sm:text-3xl font-black text-white font-mono mb-1">
+                            <p
+                                className="text-2xl sm:text-3xl font-black text-white font-mono mb-1 group-hover:scale-105 origin-left transition-transform duration-300"
+                            >
                                 {s.value}
                             </p>
                             <p className="text-xs text-white/25">{s.sub}</p>
@@ -110,8 +113,8 @@ export default function SignalsSection() {
                     ))}
                 </div>
 
-                {/* Use cases */}
-                <div className="text-center mb-12">
+                {/* Use-case header */}
+                <div className="text-center mb-12 reveal">
                     <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-4">Who It&apos;s For</p>
                     <h2
                         className="text-3xl sm:text-4xl font-extrabold text-white"
@@ -122,13 +125,20 @@ export default function SignalsSection() {
                     </h2>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
-                    {useCases.map((u) => (
+                {/* Use-case cards — staggered reveal */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 stagger-children">
+                    {useCases.map((u, i) => (
                         <div
                             key={u.label}
-                            className="flex items-start gap-3 p-4 sm:p-5 rounded-2xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.035] transition-colors duration-200 cursor-default"
+                            className="reveal flex items-start gap-3 p-4 sm:p-5 rounded-2xl border border-white/8 bg-white/[0.02] hover-glow cursor-default group"
+                            style={{ transitionDelay: `${i * 60}ms` }}
                         >
-                            <span className="text-xl shrink-0 mt-0.5">{u.icon}</span>
+                            <span
+                                className="text-xl shrink-0 mt-0.5 group-hover:scale-125 transition-transform duration-300 origin-center"
+                                aria-hidden="true"
+                            >
+                                {u.icon}
+                            </span>
                             <div>
                                 <p className="text-sm font-bold text-white mb-1">{u.label}</p>
                                 <p className="text-xs text-white/35 leading-relaxed">{u.desc}</p>

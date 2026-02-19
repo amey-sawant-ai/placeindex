@@ -30,12 +30,16 @@ const steps = [
 export default function HowItWorksSection() {
     return (
         <section id="how-it-works" className="relative py-24 px-4 sm:px-8 lg:px-16 border-t border-white/5">
-            {/* Faint vertical line */}
-            <div className="absolute left-1/2 top-32 bottom-32 w-px bg-white/5 hidden lg:block" aria-hidden="true" />
+            {/* Animated vertical connector line */}
+            <div
+                className="absolute left-1/2 top-40 bottom-40 w-px hidden lg:block reveal"
+                style={{ background: "linear-gradient(to bottom, transparent, rgba(255,255,255,0.06), transparent)" }}
+                aria-hidden="true"
+            />
 
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-20">
+                <div className="text-center mb-20 reveal">
                     <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-4">How It Works</p>
                     <h2
                         className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white"
@@ -50,20 +54,23 @@ export default function HowItWorksSection() {
                     </p>
                 </div>
 
-                {/* Steps */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Steps — alternate left/right slide */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 stagger-children">
                     {steps.map((step, i) => (
                         <div
                             key={step.num}
-                            className="relative p-6 sm:p-8 rounded-2xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.035] transition-colors duration-300 group"
+                            className={`${i % 2 === 0 ? "reveal-left" : "reveal"} relative p-6 sm:p-8 rounded-2xl border border-white/8 bg-white/[0.02] hover-glow group cursor-default`}
+                            style={{ transitionDelay: `${i * 80}ms` }}
                         >
-                            {/* Step number */}
+                            {/* Step number — large ghost */}
                             <div className="flex items-start justify-between mb-5">
-                                <span className="text-5xl font-black text-white/[0.06] font-mono leading-none select-none">
+                                <span
+                                    className="text-5xl font-black text-white/[0.05] font-mono leading-none select-none group-hover:text-white/[0.09] transition-all duration-500"
+                                >
                                     {step.num}
                                 </span>
-                                {/* Connector dot */}
-                                <div className="w-2 h-2 rounded-full bg-white/20 mt-2 group-hover:bg-white/40 transition-colors" />
+                                {/* Dot connector */}
+                                <div className="w-2 h-2 rounded-full bg-white/15 mt-2 group-hover:bg-white/50 group-hover:scale-125 transition-all duration-300" />
                             </div>
 
                             <h3
@@ -81,7 +88,7 @@ export default function HowItWorksSection() {
                                 {step.tags.map((tag) => (
                                     <span
                                         key={tag}
-                                        className="text-[11px] px-3 py-1 rounded-full border border-white/8 text-white/30 font-mono hover:text-white/50 hover:border-white/15 transition-colors cursor-default"
+                                        className="tag-pill text-[11px] px-3 py-1 rounded-full border border-white/8 text-white/30 font-mono cursor-default"
                                     >
                                         {tag}
                                     </span>
@@ -92,15 +99,15 @@ export default function HowItWorksSection() {
                 </div>
 
                 {/* Equation */}
-                <div className="mt-12 p-6 rounded-2xl border border-white/8 bg-white/[0.01] text-center">
+                <div className="mt-12 p-6 rounded-2xl border border-white/8 bg-white/[0.01] text-center reveal hover-glow">
                     <p className="text-xs text-white/25 uppercase tracking-widest font-mono mb-3">The Stack</p>
                     <p className="text-sm sm:text-base text-white/40 font-mono">
                         Bloomberg Terminal
-                        <span className="text-white/20 mx-3">×</span>
+                        <span className="text-white/15 mx-3">×</span>
                         Zillow
-                        <span className="text-white/20 mx-3">×</span>
+                        <span className="text-white/15 mx-3">×</span>
                         NSE
-                        <span className="text-white/20 mx-3">×</span>
+                        <span className="text-white/15 mx-3">×</span>
                         Urban Planning Data
                     </p>
                     <p className="mt-2 text-xs text-white/20">Focused on Indian localities.</p>

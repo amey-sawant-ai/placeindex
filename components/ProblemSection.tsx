@@ -59,7 +59,7 @@ export default function ProblemSection() {
         <section className="relative py-24 px-4 sm:px-8 lg:px-16 border-t border-white/5">
             <div className="max-w-6xl mx-auto">
                 {/* Header */}
-                <div className="text-center mb-16">
+                <div className="text-center mb-16 reveal">
                     <p className="text-xs text-white/30 uppercase tracking-widest font-mono mb-4">The Problem</p>
                     <h2
                         className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white"
@@ -73,14 +73,14 @@ export default function ProblemSection() {
                     </p>
                 </div>
 
-                {/* Problem cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20">
+                {/* Problem cards — staggered scale in */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-20 stagger-children">
                     {problems.map((p) => (
                         <div
                             key={p.title}
-                            className="p-5 rounded-2xl border border-white/8 bg-white/[0.02] hover:bg-white/[0.04] transition-colors duration-200 group cursor-default"
+                            className="reveal-scale p-5 rounded-2xl border border-white/8 bg-white/[0.02] hover-glow group cursor-default"
                         >
-                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 mb-4 group-hover:text-white/60 transition-colors">
+                            <div className="w-10 h-10 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-white/40 mb-4 group-hover:text-white/70 group-hover:border-white/20 group-hover:bg-white/10 transition-all duration-300">
                                 {p.icon}
                             </div>
                             <h3 className="text-sm font-bold text-white mb-2">{p.title}</h3>
@@ -91,14 +91,11 @@ export default function ProblemSection() {
 
                 {/* Before / After */}
                 <div className="space-y-4">
-                    <p className="text-xs text-white/25 uppercase tracking-widest font-mono text-center mb-8">PlaceIndex changes this</p>
+                    <p className="text-xs text-white/25 uppercase tracking-widest font-mono text-center mb-8 reveal">PlaceIndex changes this</p>
                     {comparisons.map((c, i) => (
-                        <div
-                            key={i}
-                            className="grid grid-cols-1 md:grid-cols-2 gap-3"
-                        >
+                        <div key={i} className="grid grid-cols-1 md:grid-cols-2 gap-3 reveal" style={{ transitionDelay: `${i * 100}ms` }}>
                             {/* Before */}
-                            <div className="flex items-start gap-3 p-4 rounded-xl border border-white/5 bg-white/[0.01]">
+                            <div className="flex items-start gap-3 p-4 rounded-xl border border-white/5 bg-white/[0.01] hover:bg-white/[0.025] transition-colors duration-200">
                                 <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full border border-white/15 flex items-center justify-center">
                                     <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3" aria-hidden="true">
                                         <path d="M2 2l8 8M10 2L2 10" stroke="rgba(255,255,255,0.3)" strokeWidth="1.5" strokeLinecap="round" />
@@ -107,13 +104,13 @@ export default function ProblemSection() {
                                 <p className="text-sm text-white/30 italic leading-relaxed">{c.before}</p>
                             </div>
                             {/* After */}
-                            <div className="flex items-start gap-3 p-4 rounded-xl border border-white/15 bg-white/[0.03]">
+                            <div className="flex items-start gap-3 p-4 rounded-xl border border-white/15 bg-white/[0.03] hover:bg-white/[0.05] hover:border-white/25 transition-all duration-200">
                                 <span className="mt-0.5 shrink-0 w-5 h-5 rounded-full border border-white/30 flex items-center justify-center">
                                     <svg viewBox="0 0 12 12" fill="none" className="w-3 h-3" aria-hidden="true">
                                         <path d="M2 6l3 3 5-5" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
                                     </svg>
                                 </span>
-                                <p className="text-sm text-white/70 leading-relaxed font-mono text-xs">{c.after}</p>
+                                <p className="text-xs text-white/70 leading-relaxed font-mono">{c.after}</p>
                             </div>
                         </div>
                     ))}

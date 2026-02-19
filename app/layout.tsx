@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -123,6 +124,7 @@ export default function RootLayout({
           }}
         />
         {children}
+        <ScrollReveal />
       </body>
     </html>
   );
