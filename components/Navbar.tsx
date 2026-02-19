@@ -10,7 +10,7 @@ export default function Navbar() {
 
     return (
         <>
-            <nav className="sticky top-0 z-50 w-full">
+            <nav className="sticky top-0 z-50 w-full border-b border-white/5 bg-black/80 backdrop-blur-md">
 
                 {/* Main bar */}
                 <div className="flex h-14 sm:h-16 w-full items-center justify-between px-4 sm:px-8 lg:px-16">

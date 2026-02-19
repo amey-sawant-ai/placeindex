@@ -6,7 +6,7 @@ export default function Footer() {
     return (
         <footer className="w-full border-t border-white/10 bg-black py-12 px-4 sm:px-8 lg:px-16">
             <div className="mx-auto max-w-7xl">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                     {/* Brand and Description */}
                     <div className="md:col-span-2">
                         <Link
@@ -21,21 +21,11 @@ export default function Footer() {
                         </p>
                     </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Project</h3>
-                        <ul className="mt-4 space-y-2">
-                            <li><Link href="/" className="text-sm text-white/40 hover:text-white transition-colors">Framework</Link></li>
-                            <li><Link href="/" className="text-sm text-white/40 hover:text-white transition-colors">Data Strategy</Link></li>
-                            <li><Link href="/" className="text-sm text-white/40 hover:text-white transition-colors">Scoring Models</Link></li>
-                        </ul>
-                    </div>
-
                     {/* SEO Rich Links */}
                     <div>
                         <h3 className="text-sm font-semibold uppercase tracking-wider text-white">Contact</h3>
                         <ul className="mt-4 space-y-2">
-                            <li><a href="mailto:ameysawant@placeindex.online" className="text-sm text-white/40 hover:text-white transition-colors no-underline">ameysawant@placeindex.online</a></li>
+                            <li><a href="mailto:contact@placeindex.online" className="text-sm text-white/40 hover:text-white transition-colors no-underline">contact@placeindex.online</a></li>
                             <li><Link href="/" className="text-sm text-white/40 hover:text-white transition-colors">LinkedIn</Link></li>
                             <li><Link href="/" className="text-sm text-white/40 hover:text-white transition-colors">Twitter</Link></li>
                         </ul>
